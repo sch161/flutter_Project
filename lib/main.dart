@@ -1,30 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_project/models/book.dart';
+import 'package:flutter_project/screens/home_screen.dart';
 
 void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  List<Book> books = [];
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(title: Text('책장')),
-        body: SafeArea(
-          child: Column(
-            children: [
-              Text('안녕하세요'),
-              Text('Flutter입니다'),
-              ElevatedButton(
-                onPressed: () {
-                  print('버튼 눌림');
-                },
-                child: Text('버튼'),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
+    return MaterialApp(home: HomeScreen(books: books));
   }
 }
